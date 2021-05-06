@@ -44,4 +44,11 @@ while True:
         
         frame[top_left[1]: top_left[1] + nose_height,
                     top_left[0]: top_left[0] + nose_width] = final_nose
+        cv2.imshow("Nose area", nose_area)
+        cv2.imshow("Nose pig", nose_pig)
+        cv2.imshow("final nose", final_nose)
+    cv2.imshow("Frame", frame)
+    key = cv2.waitKey(1)
+    if key == 27:
+        break
 
