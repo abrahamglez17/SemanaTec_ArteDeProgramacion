@@ -19,3 +19,10 @@ while True:
     faces = detector(frame)
     for face in faces:
         landmarks = predictor(gray_frame, face)
+        # Nose coordinates
+        top_nose = (landmarks.part(29).x, landmarks.part(29).y)
+        center_nose = (landmarks.part(30).x, landmarks.part(30).y)
+        left_nose = (landmarks.part(31).x, landmarks.part(31).y)
+        right_nose = (landmarks.part(35).x, landmarks.part(35).y)
+        nose_width = int(hypot(left_nose[0] - right_nose[0], left_nose[1] - right_nose[1]) * 1.7)
+        nose_height = int(nose_width * 0.77)
