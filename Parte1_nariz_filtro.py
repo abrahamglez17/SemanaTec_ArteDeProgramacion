@@ -20,3 +20,15 @@ while True:
     for (x, y, w, h) in faces:
         # Se comenta para que no salga el cuadro
         #cv2.rectangle(frame, (x,y), (x + w, y + h), (0, 255, 0), 2)
+        
+        # Redimencionarla al ancho del rostro con imutils
+        # w es ancho del rostro detectado
+        resized_image = imutils.resize(image, width = w)
+        filas_image = resized_image.shape[0]
+        col_image = w
+
+        
+        # Para que sólo sea una porción de tu cabeza y no todo arriba
+        porcion_alto = filas_image // 4
+        #El inicio de esto es sólo para que no importe que el gorro no quepa, que aun funcione
+        dif = 0
