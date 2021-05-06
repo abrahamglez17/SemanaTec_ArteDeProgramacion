@@ -9,7 +9,7 @@ En este repositorio de GitHub fue desarrollado por los alumnos:
 - Regina López Huerta - A01634239
 - NOMBRE - MATRICULA
 - NOMBRE - MATRICULA
-- NOMBRE - MATRICULA
+- Rebeca Morones Arredondo - A01251492
 
 ## Software e implementaciones necesarias:
 
