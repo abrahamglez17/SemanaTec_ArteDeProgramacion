@@ -32,3 +32,16 @@ while True:
         porcion_alto = filas_image // 4
         #El inicio de esto es sólo para que no importe que el gorro no quepa, que aun funcione
         dif = 0
+        
+        # Condición para que se dibuje la imagen sólo cuando el rostro este a una distancia aceptable para que se detecte
+        if y + porcion_alto - filas_image >= 0:
+            # Se toma una porción del video y ahi se incerta la imágen
+            n_frame = frame[y - filas_image + porcion_alto: y + porcion_alto, x: x + col_image]
+
+        else:
+            dif =  abs(y - filas_image + porcion_alto)  
+            n_frame = frame[0: y + porcion_alto, x: x + col_image]  
+            
+        mask = resized_image[:, :, 3] #Mask es como la imagen negra para poder mezclarlas
+            
+
