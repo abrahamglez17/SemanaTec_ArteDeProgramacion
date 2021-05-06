@@ -1,6 +1,6 @@
 # SemanaTec_ArteDeProgramacion
 
-Repositorio para colocar una nariz de puerquito en la persona que lo utiliza
+Repositorio para colocar un sombrero de helado
 
 ## Intergrantes del equipo:
 
@@ -18,18 +18,19 @@ En este repositorio de GitHub fue desarrollado por los alumnos:
 - Python 3
 - OpenCV-python
 - pip
-- dlib and nump library
+- imutils
 
 ## Documentación a implementar
 - Parte1_nariz_filtro.py (Documento principal python, cargado en repositorio)
-- pig_nose.png (cargada en repositorio)
-- facemarks points.png (cargada en repositorio)
-- shape_predictor_68_face_landmarks.dat (cargada en link drive: https://drive.google.com/file/d/1Zg0jZ-XZRll-FgKACTU9BYmkXMnJwk7c/view?usp=sharing)
-
+- helado.png (cargada en repositorio)
 ## Instrucciones:
-- Descargar bibliotecas cv2, numpy y dlib para python
-- guardar en la misma carpeta el documento principal (Parte1_nariz_filtro.py) junto con la documentación necesaria para el filtro (pig_nose.png, facemarks points.png) y shape_predictor_68_face_landmarks.dat   se debe descargar desde el link de drive proporcionado anteriormente en "Documentación a implementar")
+- Tener acceso a python 3
+- Descargar bibliotecas cv2, e imutils:
+Ejemplo:
+''' pip install opencv-python '''
+- Guardar en la misma carpeta el documento principal (Parte1_nariz_filtro.py) junto con la documentación necesaria para el filtro (helado.png)
 - Correr el Documento principal para visualizar resultado-> Parte1_nariz_filtro.py
 
 
-##
+## Referencia
+-Omes.(29 de Diciembre del 2020). 🤴 Creando Filtros como los de Instagram | OpenCV Python [Video]. Recuperado de https://www.bibguru.com/es/g/cita-apa-video-de-youtube/#:~:text=Para%20citar%20un%20video%20de%20YouTube%20en%20una,autores%2C%20incluye%20los%20primeros%2019%20nombres%20seguidos%20
