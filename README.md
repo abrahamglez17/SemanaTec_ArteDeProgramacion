@@ -1,5 +1,7 @@
 # SemanaTec_ArteDeProgramacion
 
+Código para colocar un filtro de nariz de puerquito al utilizarlo
+
 ## Intergrantes del equipo:
 
 En este repositorio de GitHub fue desarrollado por los alumnos:
