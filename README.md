@@ -26,7 +26,7 @@ En este repositorio de GitHub fue desarrollado por los alumnos:
 ## Instrucciones:
 - Tener acceso a python 3
 - Descargar bibliotecas cv2, e imutils:
-Ejemplo:
+-Ejemplo:
 ``` pip install opencv-python ```
 - Guardar en la misma carpeta el documento principal (Parte1_nariz_filtro.py) junto con la documentación necesaria para el filtro (helado.png)
 - Correr el Documento principal para visualizar resultado-> Parte1_nariz_filtro.py
