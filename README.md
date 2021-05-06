@@ -24,7 +24,10 @@ En este repositorio de GitHub fue desarrollado por los alumnos:
 - shape_predictor_68_face_landmarks.dat (cargada en link drive: https://drive.google.com/file/d/1Zg0jZ-XZRll-FgKACTU9BYmkXMnJwk7c/view?usp=sharing)
 
 ## Instrucciones:
-- Documento principal-> 
+- Descargar bibliotecas cv2 y dlib para python
+- guardar en la misma carpeta el documento principal (Parte1_nariz_filtro.py) junto con la documentación necesaria para el filtro (pig_nose.png, facemarks points.png) y shape_predictor_68_face_landmarks.dat   se debe descargar desde el link de drive proporcionado anteriormente en "Documentación a implementar")
+- Correr el Documento principal para visualizar resultado-> Parte1_nariz_filtro.py
+- 
 ...
 
 ##
