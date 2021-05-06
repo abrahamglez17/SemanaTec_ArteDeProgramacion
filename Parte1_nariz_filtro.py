@@ -26,3 +26,10 @@ while True:
         right_nose = (landmarks.part(35).x, landmarks.part(35).y)
         nose_width = int(hypot(left_nose[0] - right_nose[0], left_nose[1] - right_nose[1]) * 1.7)
         nose_height = int(nose_width * 0.77)
+        
+        # New nose position
+        top_left = (int(center_nose[0] - nose_width / 2),
+                              int(center_nose[1] - nose_height / 2))
+        bottom_right = (int(center_nose[0] + nose_width / 2),
+                       int(center_nose[1] + nose_height / 2))
+
