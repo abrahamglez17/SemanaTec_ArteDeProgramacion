@@ -16,4 +16,15 @@ En este repositorio de GitHub fue desarrollado por los alumnos:
 - Python 3
 - OpenCV-python
 - pip
+- dlib library
+
+## Documentación a implementar
+- pig_nose.png (cargada en repositorio)
+- facemarks points.png (cargada en repositorio)
+- shape_predictor_68_face_landmarks.dat (cargada en link drive: https://drive.google.com/file/d/1Zg0jZ-XZRll-FgKACTU9BYmkXMnJwk7c/view?usp=sharing)
+
+## Instrucciones:
+- Documento principal-> 
 ...
+
+##
