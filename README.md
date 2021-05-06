@@ -15,10 +15,10 @@ En este repositorio de GitHub fue desarrollado por los alumnos:
 
 ## Software e implementaciones necesarias:
 
-- Python 3
+- Python 3 en adelante
 - OpenCV-python
 - pip
-- imutils
+- imutils library
 
 ## Documentación a implementar
 - Parte1_nariz_filtro.py (Documento principal python, cargado en repositorio)
