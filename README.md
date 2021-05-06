@@ -8,7 +8,7 @@ En este repositorio de GitHub fue desarrollado por los alumnos:
 - Fátima Berenice González Camarena - A01639051
 - Regina López Huerta - A01634239
 - Brenda Cristina Yépiz Moreno - A01633793
-- NOMBRE - MATRICULA
+- Raul Tiberiu Hrabak Barcelata - A01635261
 - Rebeca Morones Arredondo - A01251492
 
 ## Software e implementaciones necesarias:
