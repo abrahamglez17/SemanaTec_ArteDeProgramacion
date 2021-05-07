@@ -30,6 +30,7 @@ while True:
         
         # Para que sólo sea una porción de tu cabeza y no todo arriba
         porcion_alto = filas_image // 4
+        
         #El inicio de esto es sólo para que no importe que el gorro no quepa, que aun funcione
         dif = 0
         
@@ -49,10 +50,13 @@ while True:
 
         # Con este pone el gorro de color y fondo negro
         bg_black = cv2.bitwise_and(resized_image, resized_image, mask=mask)
+        
         # Para que tome los tres primeros canales y no tener dificultad con frame
         bg_black = bg_black[dif:, :, 0:3]
+        
         # Para que el fondo este igual que el cuarto donde estas
         bg_frame = cv2.bitwise_and(n_frame, n_frame, mask=mask_inv[dif:, :])
+        
         # Suma ambas imágenes, la del fondo igual a tu cuarto y la imágen solita
         result = cv2.add(bg_black, bg_frame)
         if y + porcion_alto - filas_image >= 0:
