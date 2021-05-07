@@ -2,7 +2,7 @@
 
 Repositorio para colocar un sombrero de helado
 
-## Intergrantes del equipo:
+## Integrantes del equipo:
 
 En este repositorio de GitHub fue desarrollado por los alumnos:
 
@@ -12,6 +12,10 @@ En este repositorio de GitHub fue desarrollado por los alumnos:
 - Brenda Cristina Yépiz Moreno - A01633793
 - Raul Tiberiu Hrabak Barcelata - A01635261
 - Rebeca Morones Arredondo - A01251492
+
+## Descripción
+- Alusión a filtro de instagram que requiere reconocimiento facial y detección de bordes de la cara para delimitar la superficie en la que se aplicará 
+- el sombrero (o algún otro accesorio sobre la cabeza)
 
 ## Software e implementaciones necesarias:
 
