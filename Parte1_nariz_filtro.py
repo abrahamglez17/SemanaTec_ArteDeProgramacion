@@ -7,7 +7,7 @@ cap = cv2.VideoCapture(0,cv2.CAP_DSHOW)
 # IMREAD_UNCHANGED agrega 4 canales: en el 4to es un canal alfa o transparencia
 image = cv2.imread('helado.png', cv2.IMREAD_UNCHANGED)
 
-# Clasificador
+# Clasificador de rostro, para que se identifique como facciones faciales
 faceClassif = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_default.xml')
 
 while True:
