@@ -4,7 +4,7 @@ Repositorio para colocar un sombrero de helado
 
 ## Integrantes del equipo:
 
-En este repositorio de GitHub fue desarrollado por los alumnos:
+Este repositorio de GitHub fue desarrollado por los alumnos:
 
 - José Abraham González Navarro - A00369832
 - Fátima Berenice González Camarena - A01639051
