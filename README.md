@@ -25,7 +25,7 @@ el sombrero (o algún otro accesorio sobre la cabeza)
 - imutils library
 
 ## Documentación a implementar
-- Parte1_nariz_filtro.py (Documento principal python, cargado en repositorio)
+- Helado_filtro.py (Documento principal python, cargado en repositorio)
 - helado.png (cargada en repositorio)
 ## Instrucciones:
 - Tener acceso a python 3
