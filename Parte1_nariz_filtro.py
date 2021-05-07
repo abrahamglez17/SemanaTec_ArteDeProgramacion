@@ -3,8 +3,8 @@ import imutils
 
 cap = cv2.VideoCapture(0,cv2.CAP_DSHOW)
 
-# Imágen a incrustar, png para que tenga transparencia
-# IMREAD_UNCHANGED agrega 4 canales: en el 4to es un canal alfa o tranparencia
+# Imagen a incrustar, png para que tenga transparencia
+# IMREAD_UNCHANGED agrega 4 canales: en el 4to es un canal alfa o transparencia
 image = cv2.imread('helado.png', cv2.IMREAD_UNCHANGED)
 
 # Clasificador
