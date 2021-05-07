@@ -1,47 +1,71 @@
 import cv2
-import numpy as np
-import dlib
-from math import hypot
-# Loading Camera and Nose image and Creating mask
-cap = cv2.VideoCapture(0)
-nose_image = cv2.imread("pig_nose.png")
-_, frame = cap.read()
-rows, cols, _ = frame.shape
-nose_mask = np.zeros((rows, cols), np.uint8)
-# Loading Face detector
-detector = dlib.get_frontal_face_detector()
-predictor = dlib.shape_predictor("shape_predictor_68_face_landmarks.dat")
+import imutils
+
+cap = cv2.VideoCapture(0,cv2.CAP_DSHOW)
+
+# Imágen a incrustar, png para que tenga transparencia
+# IMREAD_UNCHANGED agrega 4 canales: en el 4to es un canal alfa o transparencia
+image = cv2.imread('helado.png', cv2.IMREAD_UNCHANGED)
+
+# Clasificador
+faceClassif = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_default.xml')
 
 while True:
-    _, frame = cap.read()
-    nose_mask.fill(0)
-    gray_frame = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
-    faces = detector(frame)
-    for face in faces:
-        landmarks = predictor(gray_frame, face)
-        # Nose coordinates
-        top_nose = (landmarks.part(29).x, landmarks.part(29).y)
-        center_nose = (landmarks.part(30).x, landmarks.part(30).y)
-        left_nose = (landmarks.part(31).x, landmarks.part(31).y)
-        right_nose = (landmarks.part(35).x, landmarks.part(35).y)
-        nose_width = int(hypot(left_nose[0] - right_nose[0], left_nose[1] - right_nose[1]) * 1.7)
-        nose_height = int(nose_width * 0.77)
-        
-        # New nose position
-        top_left = (int(center_nose[0] - nose_width / 2),
-                              int(center_nose[1] - nose_height / 2))
-        bottom_right = (int(center_nose[0] + nose_width / 2),
-                       int(center_nose[1] + nose_height / 2))
-         # Adding the new nose
-        nose_pig = cv2.resize(nose_image, (nose_width, nose_height))
-        nose_pig_gray = cv2.cvtColor(nose_pig, cv2.COLOR_BGR2GRAY)
-        _, nose_mask = cv2.threshold(nose_pig_gray, 25, 255, cv2.THRESH_BINARY_INV)
-        
-        nose_area = frame[top_left[1]: top_left[1] + nose_height,
-                    top_left[0]: top_left[0] + nose_width]
-        nose_area_no_nose = cv2.bitwise_and(nose_area, nose_area, mask=nose_mask)
-        final_nose = cv2.add(nose_area_no_nose, nose_pig)
-        
-        frame[top_left[1]: top_left[1] + nose_height,
-                    top_left[0]: top_left[0] + nose_width] = final_nose
 
+    ret, frame = cap.read()
+    if ret == False: break
+    frame = imutils.resize(frame, width=640)
+    # Detección de los rostros presentes en el fotograma
+    faces = faceClassif.detectMultiScale(frame, 1.3, 5)
+    for (x, y, w, h) in faces:
+        # Se comenta para que no salga el cuadro
+        #cv2.rectangle(frame, (x,y), (x + w, y + h), (0, 255, 0), 2)
+
+        # Redimencionarla al ancho del rostro con imutils
+        # w es ancho del rostro detectado
+        resized_image = imutils.resize(image, width = w)
+        filas_image = resized_image.shape[0]
+        col_image = w
+
+        
+        # Para que sólo sea una porción de tu cabeza y no todo arriba
+        porcion_alto = filas_image // 4
+        # El inicio de esto es sólo para que no importe que el gorro no quepa, que aun funcione
+        dif = 0
+        # Condición para que se dibuje la imagen sólo cuando el rostro este a una distancia aceptable para que se detecte
+        if y + porcion_alto - filas_image >= 0:
+            # Se toma una porción del video y ahi se incerta la imágen
+            n_frame = frame[y - filas_image + porcion_alto: y + porcion_alto, x: x + col_image]
+
+        else:
+            dif =  abs(y - filas_image + porcion_alto)  
+            n_frame = frame[0: y + porcion_alto, x: x + col_image]  
+            
+        mask = resized_image[:, :, 3] #Mask es como la imagen negra para poder mezclarlas
+            
+        # Invertir la imagen
+        mask_inv = cv2.bitwise_not(mask)
+
+        # Con este pone el gorro de color y fondo negro
+        bg_black = cv2.bitwise_and(resized_image, resized_image, mask=mask)
+        # Para que tome los tres primeros canales y no tener dificultad con frame
+        bg_black = bg_black[dif:, :, 0:3]
+        # Para que el fondo este igual que el cuarto donde estas
+        bg_frame = cv2.bitwise_and(n_frame, n_frame, mask=mask_inv[dif:, :])
+        # Suma ambas imágenes, la del fondo igual a tu cuarto y la imágen solita
+        result = cv2.add(bg_black, bg_frame)
+        
+        if y + porcion_alto - filas_image >= 0:
+            frame[y - filas_image + porcion_alto: y + porcion_alto, x: x + col_image] = result
+        else:
+            frame[0: y + porcion_alto, x: x + col_image] = result
+    
+    cv2.imshow('frame',frame)
+
+    k = cv2.waitKey(1) & 0xFF
+    if k == 27:
+        break
+
+
+cap.release()
+cv2.destroyAllWindows()
