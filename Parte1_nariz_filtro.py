@@ -43,5 +43,16 @@ while True:
             n_frame = frame[0: y + porcion_alto, x: x + col_image]  
             
         mask = resized_image[:, :, 3] #Mask es como la imagen negra para poder mezclarlas
-            
+        
+         # Invertir la imagen
+        mask_inv = cv2.bitwise_not(mask)
+
+        # Con este pone el gorro de color y fondo negro
+        bg_black = cv2.bitwise_and(resized_image, resized_image, mask=mask)
+        # Para que tome los tres primeros canales y no tener dificultad con frame
+        bg_black = bg_black[dif:, :, 0:3]
+        # Para que el fondo este igual que el cuarto donde estas
+        bg_frame = cv2.bitwise_and(n_frame, n_frame, mask=mask_inv[dif:, :])
+        # Suma ambas imágenes, la del fondo igual a tu cuarto y la imágen solita
+        result = cv2.add(bg_black, bg_frame)    
 
