@@ -15,7 +15,7 @@ Este repositorio de GitHub fue desarrollado por los alumnos:
 
 ## Descripción
 - Alusión a filtro de instagram que requiere reconocimiento facial y detección de bordes de la cara para delimitar la superficie en la que se aplicará 
-- el sombrero (o algún otro accesorio sobre la cabeza)
+el sombrero (o algún otro accesorio sobre la cabeza)
 
 ## Software e implementaciones necesarias:
 
