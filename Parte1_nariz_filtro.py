@@ -54,5 +54,19 @@ while True:
         # Para que el fondo este igual que el cuarto donde estas
         bg_frame = cv2.bitwise_and(n_frame, n_frame, mask=mask_inv[dif:, :])
         # Suma ambas imágenes, la del fondo igual a tu cuarto y la imágen solita
-        result = cv2.add(bg_black, bg_frame)    
+        result = cv2.add(bg_black, bg_frame)
+        if y + porcion_alto - filas_image >= 0:
+            frame[y - filas_image + porcion_alto: y + porcion_alto, x: x + col_image] = result
+        else:
+            frame[0: y + porcion_alto, x: x + col_image] = result
+    
+    cv2.imshow('frame',frame)
+
+    k = cv2.waitKey(1) & 0xFF
+    if k == 27:
+        break
+
+
+cap.release()
+cv2.destroyAllWindows()
 
